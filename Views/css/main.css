@@ -1,0 +1,49 @@
+:root{
+    --main-bg-color: #fff;
+    --main-header-color: #142C44;
+    --main-header-color-font: #ebf2f9;
+    --main-body-color: #F8AE3A;
+    --main-button-color: #BE2F29;
+    --main-boly-link-color: #335c99;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/vazir-font/Vazir.eot');
+    src: url('../fonts/vazir-font/Vazir.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/vazir-font/Vazir.woff2') format('woff2'),
+    url('../fonts/vazir-font/Vazir.woff') format('woff'),
+    url('../fonts/vazir-font/Vazir.ttf') format('truetype')
+}
+
+body{
+    font-weight: normal!important;
+    background-color: var(--main-bg-color);
+}
+
+.container{
+    font-family: Vazir, tahoma , serif;
+}
+.customize-header{
+    color: var(--main-header-color-font);
+    background-color: var(--main-header-color);
+}
+.customize-header a{
+    color: var(--main-header-color-font);
+    text-decoration: none;
+}
+.customize-body{
+    color: var(--main-header-color);
+    background-color: var(--main-body-color);
+}
+.customize-body a{
+    color: var(--main-boly-link-color);
+    text-decoration: none;
+}
+.customize-button{
+    color: whitesmoke;
+    background-color: var(--main-button-color) ;
+}
+.form-control{
+    background-color: whitesmoke;
+}
