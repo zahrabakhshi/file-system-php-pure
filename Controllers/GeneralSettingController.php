@@ -2,7 +2,7 @@
 
 class GeneralSettingController
 {
-    private GeneralSetting $general_setting;
+//    private GeneralSetting $general_setting;
 
     public function getGeneralSetting(){
         return $this->general_setting;
@@ -14,7 +14,7 @@ class GeneralSettingController
         $this->general_setting->fetchSettings();
     }
 
-    public function renderGeneralSettingView()
+    public static function renderGeneralSettingView()
     {
 
         require_once '/home/zahra/PhpstormProjects/filesale/Views/general-setting.php';

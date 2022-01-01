@@ -9,6 +9,7 @@ spl_autoload_register('autoLoader');
 class User
 {
     private $id;
+    private $name;
     private $email;
     private $phone_number;
     private $password;
@@ -93,14 +94,26 @@ class User
     {
 
         if (isset($this->email) && isset($this->phone_number) && isset($this->password)) {
+            if(isset($this->name)){
+                $name = $this->name;
+            }else
+                $name = "";
 
             $connection = new DbConnection();
             $db = $connection->getMysqliObj();
 
-            $query = "INSERT INTO `users` (`email`, `phone_number`, `password`) 
-                VALUES ('$this->email', '$this->phone_number', '$this->password')";
+            $query = "INSERT INTO `users` (`email`,`name`, `phone_number`, `password`) 
+                VALUES ('$this->email','$name', '$this->phone_number', '$this->password')";
 
             $db->query($query) or die("line: " . __LINE__ . " cause an error: " . $db->error);
+
+            $newest_user = new User();
+            $newest_user->setEmail($this->email);
+            $newest_user->setUserData();
+            $newest_user_id = $newest_user->getId();
+
+            $query2 = "INSERT INTO `user_role`(`user_id`, `role_id`) VALUES ('$newest_user_id','3')";
+            $db->query($query2) or die("line: " . __LINE__ . " cause an error: " . $db->error);
 
             $db->close();
 
@@ -127,12 +140,28 @@ class User
 
         $result = $db->query($query) or die("line: " . __LINE__ . " error: " . $db->error);
 
-        if (!$result) {
-            die('unsuccessfuly');
-        }
+    }
 
+    public static function getAllUserEmail(){
+        $connection = new DbConnection();
+        $db = $connection->getMysqliObj();
+
+        $query = "SELECT email FROM `users`";
+
+        $result = $db->query($query) or die("line: " . __LINE__ . " error: " . $db->error);
+
+        return $result->fetch_all();
 
     }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
 
     /**
      * @return mixed

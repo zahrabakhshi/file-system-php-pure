@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign up</title>
 
-    <link rel="stylesheet" type="text/css" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap-5.1.0-dist/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:63342/filesale/Views/bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:63342/filesale/Views/bootstrap-5.1.0-dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:63342/filesale/Views/css/main.css">
 
 </head>
 <body>
@@ -23,6 +23,9 @@
                 <div class="p-5">
                     <div class="mb-4">
                         <input class="form-control" type="email" name="email" placeholder="ایمیل">
+                    </div>
+                    <div class="mb-4">
+                        <input class="form-control" type="text" name="name" placeholder="نام">
                     </div>
                     <div class="mb-4">
                         <input class="form-control" type="text" name="phone-number" placeholder="شماره موبایل">

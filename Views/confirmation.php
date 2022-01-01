@@ -7,7 +7,6 @@ require_once '/home/zahra/PhpstormProjects/filesale/Services/functions/autoLoade
 spl_autoload_register('autoLoader');
 
 $file_table = new FileController();
-$file_table->getFilesTable();
 
 ?>
 <!doctype html>

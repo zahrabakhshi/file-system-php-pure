@@ -3,7 +3,7 @@
 class FileController
 {
 
-    public function renderConfirmationPage(){
+    public static function renderConfirmationPage(){
         include_once '/home/zahra/PhpstormProjects/filesale/Views/confirmation.php';
     }
 

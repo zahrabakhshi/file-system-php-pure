@@ -31,7 +31,7 @@
                             <input class="btn customize-button w-100" type="submit" name="submit" value="ورود">
                         </div>
                         <div>
-                            <p class="m-0"><small> عضو نیستید؟ <a class=" text-decoration-none" href="signup.php">ثبت نام کنید</a></small></p>
+                            <p class="m-0"><small> عضو نیستید؟ <a class=" text-decoration-none" href="../index.php?route=signup-page">ثبت نام کنید</a></small></p>
                         </div>
                     </div>
                 </div>

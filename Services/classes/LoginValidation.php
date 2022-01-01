@@ -5,7 +5,7 @@ class LoginValidation
 {
     private $username;
     private $password;
-    private array  $errors;
+    private  $errors;
 
     public function __construct($username, $password)
     {

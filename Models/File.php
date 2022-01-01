@@ -27,6 +27,21 @@ class File
 
     }
 
+    public static function getAllFileData(){
+        $connection = new DbConnection();
+        $db = $connection->getMysqliObj();
+
+        $query = "SELECT 'file.name' as filename ,
+                   'user.name' as username ,
+                   'description'
+            FROM files,users 
+            WHERE files.user_id = users.id;";
+
+        $result = $db->query($query) or die("line: " . __LINE__ . " error: " . $db->error);
+
+        return $result->fetch_assoc();
+    }
+
     public function setNewFile()
     {
 
@@ -77,6 +92,7 @@ class File
 
         return $result->fetch_assoc();
     }
+
 
     /**
      * @return mixed

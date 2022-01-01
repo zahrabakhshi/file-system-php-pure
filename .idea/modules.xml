@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/PhpstormProjects/dots-and-boxes1/.idea/dots-and-boxes1.iml" filepath="$USER_HOME$/PhpstormProjects/dots-and-boxes1/.idea/dots-and-boxes1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/filesale.iml" filepath="$PROJECT_DIR$/.idea/filesale.iml" />
-      <module fileurl="file://$USER_HOME$/PhpstormProjects/saffaron/.idea/saffaron.iml" filepath="$USER_HOME$/PhpstormProjects/saffaron/.idea/saffaron.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../saffaron/.idea/saffaron.iml" filepath="$PROJECT_DIR$/../saffaron/.idea/saffaron.iml" />
     </modules>
   </component>
 </project>

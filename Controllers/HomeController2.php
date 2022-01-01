@@ -4,18 +4,29 @@
 class HomeController2
 {
 
-    public $panel_list;
 
-    public function setPanelList($email){
+    public static function getRoleList($email){
         $user = new User();
         $user->setEmail($email);
         $user->setUserData();
 
-        $user_access = new UserAceess();
-        $user_accesses = $user_access->getAcceessIdsByUserID($user->getId());
-        $user_accesses_friendly = array_column($user_accesses,'access_id');
+        $role = new Role();
+        $roles = array_column($role->getRoleListByUserId($user->getId()), 'role_id');
+
+        return $roles;
+    }
+
+    public static function getOrders($email){
+        $user = new User();
+        $user->setEmail($email);
+        $user->setUserData();
+
+        $orders_data = Sale::getUserOrders($user->getId());
+
+        return $orders_data;
 
     }
+
 
     public function renderHomePage(){
         require_once '/home/zahra/PhpstormProjects/filesale/Views/dashboard.php';

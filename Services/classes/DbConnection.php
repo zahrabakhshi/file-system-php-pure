@@ -6,7 +6,7 @@ class DbConnection
     const SERVER_NAME = "localhost";
     const USER_NAME = "root";
     const PASSWORD = "";
-    const DATABASE_NAME = "filesystem";
+    const DATABASE_NAME = "filesystem2";
 
     private mysqli $db_connection;
 
@@ -18,7 +18,7 @@ class DbConnection
                 DbConnection::USER_NAME,
                 DbConnection::PASSWORD,
                 DbConnection::DATABASE_NAME
-            )or die('data base connection error:' . $conn->connect_error);
+            )or die('data base connection error:' . $this->db_connection->connect_error);
         }
     }
 

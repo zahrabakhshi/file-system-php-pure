@@ -6,6 +6,14 @@ error_reporting(E_ALL);
 include_once '/home/zahra/PhpstormProjects/filesale/Services/functions/autoLoader.php';
 spl_autoload_register('autoLoader');
 
+//if($_SESSION['email']){
+//    if(!LoginController::checkLogin($_SESSION['email'])){
+//        header("Location: login.php");
+//    }
+//}else{
+//    header("Location: login.php");
+//}
+
 $general_setting = new GeneralSetting();
 $is_there_settings = true;
 if (!$general_setting->fetchSettings()) {

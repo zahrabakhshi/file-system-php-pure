@@ -14,6 +14,10 @@ class UploadController
         $this->target_file = $target_dir . basename($this->file['name']);
     }
 
+    public static function renderUserUploadPage(){
+        include_once '/home/zahra/PhpstormProjects/filesale/Views/user-upload.php';
+    }
+
     public function doUploadFile($user_email){
 
         if($this->fileNotExists() && $this->fileValidation()){
@@ -73,7 +77,6 @@ class UploadController
 //        }
         return true;
     }
-
 
     public function sizeFileValidation()
     {

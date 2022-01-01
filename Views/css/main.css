@@ -41,7 +41,7 @@ body{
     text-decoration: none;
 }
 .customize-button{
-    color: whitesmoke;
+    color: whitesmoke!important;
     background-color: var(--main-button-color) ;
 }
 .form-control{

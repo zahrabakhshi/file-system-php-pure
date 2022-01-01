@@ -8,27 +8,35 @@ spl_autoload_register('autoLoader');
 class SignupController
 {
     public $email;
+    public $name;
     public $phone_number;
     public $password;
     public $repassword;
 
     public function __construct(
         $email,
+        $name,
         $phone_number,
         $password,
         $repassword
     )
     {
         $this->email = $email;
+        $this->name = $name;
         $this->phone_number = $phone_number;
         $this->password = $password;
         $this->repassword = $repassword;
+    }
+
+    public static function renderSignupPage(){
+        include_once '/home/zahra/PhpstormProjects/filesale/Views/signup.php';
     }
 
     public function doSignup()
     {
         $signup_validation = new SignUpValidation(
             $this->email,
+            $this->name,
             $this->phone_number,
             $this->password,
             $this->repassword
@@ -38,6 +46,7 @@ class SignupController
 
             $new_user = new User();
             $new_user->setEmail($this->email);
+            $new_user->setName($this->name);
             $new_user->setPhoneNumber($this->phone_number);
             $new_user->setPassword($this->password);
             if($new_user->insertNewUser()){

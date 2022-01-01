@@ -4,6 +4,7 @@
 class SignUpValidation
 {
     private $email;
+    private $name;
     private $phone_number;
     private $password;
     private $re_password;
@@ -13,13 +14,15 @@ class SignUpValidation
     /**
      * SignUpValidation constructor.
      * @param $email
+     * @param $name
      * @param $phone_number
      * @param $password
      * @param $re_password
      */
-    public function __construct($email, $phone_number, $password, $re_password)
+    public function __construct($email,$name, $phone_number, $password, $re_password)
     {
         $this->email = $email;
+        $this->name = $name;
         $this->phone_number = $phone_number;
         $this->password = $password;
         $this->re_password = $re_password;
@@ -31,6 +34,7 @@ class SignUpValidation
         if ($this->checkSet() &&
             $this->checkEmpty() &&
             $this->checkEmailValidation() &&
+            $this->checkEmailExist() &&
             $this->checkPhoneNumberFormat() &&
             $this->checkPassAndRePassMatch() &&
             $this->checkPassFromat()
@@ -93,6 +97,13 @@ class SignUpValidation
             $return_value = false;
         }
         return $return_value;
+    }
+
+    private function checkEmailExist(){
+
+        if(in_array($this->email, User::getAllUserEmail()))
+            return false;
+        return true;
     }
 
     private function checkEmailValidation()

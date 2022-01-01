@@ -27,6 +27,7 @@ if (!isset($_GET['route'])) {
         case 'do_signup':
             $sign_up_controller = new SignupController(
                 $_POST['email'],
+                $_POST['name'],
                 $_POST['phone-number'],
                 $_POST['password'],
                 $_POST['re-password']
@@ -35,7 +36,15 @@ if (!isset($_GET['route'])) {
             $sign_up_controller->doLogin();
 
             break;
-
+        case 'signup-page':
+            SignupController::renderSignupPage();
+            break;
+        case 'confirmation-page':
+            FileController::renderConfirmationPage();
+            break;
+        case 'general-setting':
+            GeneralSettingController::renderGeneralSettingView();
+            break;
         case 'dashboard-page':
             $ch = LoginController::checkLogin($_SESSION['email']);
             $home_controller = new HomeController2();
@@ -72,17 +81,16 @@ if (!isset($_GET['route'])) {
 
             } elseif ($_GET['type'] == 'file_type') {
 
-                if(isset($_POST['edit_delete_new'])){
+                if (isset($_POST['edit_delete_new'])) {
 
-                    if($_POST['edit_delete_new'] == 'edit'){
-                        $general_setting->editFileType($_POST['old_file_type'],$_POST['new_file_type']);
+                    if ($_POST['edit_delete_new'] == 'edit') {
+                        $general_setting->editFileType($_POST['old_file_type'], $_POST['new_file_type']);
 
-                    }elseif($_POST['edit_delete_new'] == 'delete'){
+                    } elseif ($_POST['edit_delete_new'] == 'delete') {
                         $general_setting->deleteFileType($_POST['new_file_type']);
 
-                    }elseif($_POST['edit_delete_new'] = 'add_new'){
+                    } elseif ($_POST['edit_delete_new'] = 'add_new') {
                         $general_setting->addFileType($_POST['new_type']);
-
                     }
                 }
 
@@ -93,13 +101,15 @@ if (!isset($_GET['route'])) {
             break;
         case 'do-confirm':
             $ch = LoginController::checkLogin($_SESSION['email']);
-            if(isset($_POST['check'])){
+            if (isset($_POST['check'])) {
                 $changed_files_by_id = $_POST['check'];
                 $file_controller = new FileController();
                 $file_controller->confirmFiles($changed_files_by_id);
                 $file_controller->renderConfirmationPage();
             }
-
+            break;
+        case 'user-upload-page':
+            UploadController::renderUserUploadPage();
             break;
 
 
